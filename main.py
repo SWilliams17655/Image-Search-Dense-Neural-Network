@@ -1,29 +1,20 @@
-#import ai_toolbox
 import base64
 from dataset import MNIST_Dataset
 from flask import Flask, flash, render_template, request
 from io import BytesIO
 from matplotlib.figure import Figure
-#from sklearn.metrics import accuracy_score
 import numpy as np
 import pickle
-#import matplotlib.pyplot as plt
 
 app = Flask(__name__)
 
 global y_pred_nn
 
 test_data = MNIST_Dataset("data/fashion_mnist_test.csv")
-#train_data = MNIST_Dataset("data/fashion_mnist_train.csv")
 
 test_data.load()
-#train_data.load()
 
 test_data.normalize()
-#train_data.normalize()
-
-#model_nn_clf = ai_toolbox.train_neural_network(train_data.x, train_data.y, test_data.x, test_data.y)
-#pickle.dump(model_nn_clf, open('model.pkl', 'wb'))
 
 model_nn_clf = pickle.load(open('model.pkl', 'rb'))
 
@@ -62,5 +53,5 @@ def search():
 
     return render_template("MNIST_search_engine.html", data=data)
 
-if __name__ == "__main__":  # is the same thing as calling the run function
+if __name__ == "__main__":
     app.run(host="0.0.0.0")
