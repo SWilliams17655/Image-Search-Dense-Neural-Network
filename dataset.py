@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 class MNIST_Dataset:
     def __init__(self, file_location=""):
         self.file_location = file_location
