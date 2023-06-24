@@ -45,7 +45,7 @@ def search():
     global y_pred_nn
     data = []
 
-    for i in range(1000):
+    for i in range(700):
         if np.argmax(y_pred_nn[i]) == int(request.form["selector"]):
             probability = y_pred_nn[i][np.argmax(y_pred_nn[i])]
             if probability > .99:
