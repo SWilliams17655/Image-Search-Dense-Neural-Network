@@ -1,22 +1,4 @@
-import pandas as pd
-import matplotlib.pyplot as plt
 import tensorflow as tf
-from sklearn.model_selection import StratifiedShuffleSplit
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
-import pickle
-
-
-def save_to_csv(data_frame, file_location):
-    """
-    Saves a data set to a .csv file.
-    :param data_frame: [Required] DataFrame representing the file to be saved.
-    :param file_location: [Required] String representing file location for where .csv will be saved.
-    :return: none
-    """
-
-    os_loc = input(file_location)
-    data_frame.to_csv(os_loc)
 
 
 def train_neural_network(x_train, y_train, x_eval_set, y_eval_set):
@@ -29,8 +11,6 @@ def train_neural_network(x_train, y_train, x_eval_set, y_eval_set):
     :param y_eval_set : Series with solutions for x_test attributes.
     :return: Returns the trained model.
     """
-
-    print("\n\n Training neural network model for classification...")
 
     num_epoch = 30
     num_batch = 500

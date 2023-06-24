@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class MNIST_Dataset:
     def __init__(self, file_location=""):
         self.file_location = file_location
@@ -10,10 +11,8 @@ class MNIST_Dataset:
     def load(self, os_loc=None):
         """
         Loads a data set for use in the machine learning program.
-
         :param os_loc: [Optional] String representing the file to be loaded. If None, the function
         will request user provide a location via the command prompt. Default = None.
-
         :return: DataFrame representing the file loaded.
         """
 
@@ -21,7 +20,7 @@ class MNIST_Dataset:
             self.data_file = pd.read_csv(self.file_location)
 
         else:
-            self.file_location=os_loc
+            self.file_location = os_loc
             self.data_file = pd.read_csv(self.file_location)
 
         self.y = self.data_file["label"]
@@ -43,4 +42,4 @@ class MNIST_Dataset:
         return image
 
     def normalize(self):
-        self.x = self.x.apply(lambda x: x/255)
+        self.x = self.x.apply(lambda x: x / 255)
